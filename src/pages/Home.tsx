@@ -1,0 +1,318 @@
+import { Link } from "react-router-dom";
+import { 
+  ArrowRight, 
+  Zap, 
+  Bot, 
+  Users, 
+  TrendingUp, 
+  Clock, 
+  Target,
+  Building2,
+  Scale,
+  Heart,
+  Laptop,
+  Briefcase,
+  CheckCircle2,
+  MessageSquare,
+  Calendar,
+  CreditCard,
+  BarChart3
+} from "lucide-react";
+import { Layout } from "@/components/layout/Layout";
+import { SectionHeader, FeatureCard, TestimonialCard, StatCard } from "@/components/ui/SectionComponents";
+import { CTASection } from "@/components/CTASection";
+
+const benefits = [
+  {
+    icon: Clock,
+    title: "Atendimento 24/7",
+    description: "IA trabalhando para você mesmo enquanto você descansa, sem perder nenhum lead.",
+  },
+  {
+    icon: Target,
+    title: "Qualificação Automática",
+    description: "Leads filtrados e priorizados automaticamente, economizando tempo da equipe comercial.",
+  },
+  {
+    icon: TrendingUp,
+    title: "Previsibilidade de Vendas",
+    description: "Processos estruturados que geram resultados consistentes e mensuráveis mês a mês.",
+  },
+  {
+    icon: Zap,
+    title: "Automação Inteligente",
+    description: "Fluxos automatizados que seguem seu método de vendas com precisão cirúrgica.",
+  },
+  {
+    icon: Users,
+    title: "Follow-up Consistente",
+    description: "Nunca mais perca uma oportunidade por falta de acompanhamento sistemático.",
+  },
+  {
+    icon: Bot,
+    title: "IA Conversacional",
+    description: "Chatbots inteligentes que entendem contexto e conduzem conversas humanizadas.",
+  },
+];
+
+const segments = [
+  { icon: Building2, name: "Imobiliárias" },
+  { icon: Scale, name: "Advocacia" },
+  { icon: Heart, name: "Saúde e Estética" },
+  { icon: Laptop, name: "Negócios Digitais" },
+  { icon: Briefcase, name: "Empresas B2B" },
+];
+
+const howItWorks = [
+  {
+    step: "01",
+    title: "Diagnóstico",
+    description: "Mapeamos seus processos de vendas e atendimento para identificar gargalos e oportunidades.",
+  },
+  {
+    step: "02",
+    title: "Estratégia",
+    description: "Desenhamos a orquestração ideal integrando IA, automação e seu método comercial.",
+  },
+  {
+    step: "03",
+    title: "Implementação",
+    description: "Configuramos as ferramentas e integrações com WhatsApp, CRM, agenda e pagamentos.",
+  },
+  {
+    step: "04",
+    title: "Otimização",
+    description: "Acompanhamos métricas e otimizamos continuamente para maximizar conversões.",
+  },
+];
+
+const testimonials = [
+  {
+    quote: "Em 3 meses, dobramos nossa taxa de conversão. O atendimento automático captura leads que antes perdíamos.",
+    author: "Carlos Eduardo",
+    role: "Diretor Comercial",
+    company: "Imobiliária Premium",
+  },
+  {
+    quote: "A automação do follow-up transformou nosso processo. Fechamos mais contratos com menos esforço manual.",
+    author: "Dra. Mariana Costa",
+    role: "Sócia-fundadora",
+    company: "Costa Advogados",
+  },
+  {
+    quote: "Finalmente temos previsibilidade. Sabemos quantos agendamentos teremos por semana com 90% de precisão.",
+    author: "Dr. Rafael Mendes",
+    role: "Proprietário",
+    company: "Clínica Estética Mendes",
+  },
+];
+
+export default function Home() {
+  return (
+    <Layout>
+      {/* Hero Section */}
+      <section className="hero-bg min-h-[90vh] flex items-center relative overflow-hidden">
+        <div className="container-custom relative z-10">
+          <div className="max-w-4xl mx-auto text-center">
+            <span className="inline-block px-4 py-2 bg-accent/20 text-accent rounded-full text-sm font-medium mb-6 animate-fade-in-up">
+              Orquestração Digital Inteligente
+            </span>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-heading font-bold text-white mb-6 leading-tight animate-fade-in-up" style={{ animationDelay: "0.1s" }}>
+              Transformamos atendimento em vendas com{" "}
+              <span className="text-gradient-cta">automação inteligente</span>
+            </h1>
+            <p className="text-xl md:text-2xl text-white/80 mb-10 max-w-3xl mx-auto leading-relaxed animate-fade-in-up" style={{ animationDelay: "0.2s" }}>
+              IA, automação e estratégia trabalhando juntas para gerar previsibilidade 
+              e escalar suas vendas sem aumentar sua equipe.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up" style={{ animationDelay: "0.3s" }}>
+              <Link to="/contato" className="btn-cta text-lg">
+                Fale com um especialista
+                <ArrowRight className="w-5 h-5" />
+              </Link>
+              <Link to="/solucoes" className="btn-secondary bg-white/10 text-white border-white/20 hover:bg-white/20 text-lg">
+                Conheça as soluções
+              </Link>
+            </div>
+          </div>
+        </div>
+
+        {/* Decorative Elements */}
+        <div className="absolute top-20 left-10 w-72 h-72 bg-accent/10 rounded-full blur-3xl" />
+        <div className="absolute bottom-20 right-10 w-96 h-96 bg-cta/10 rounded-full blur-3xl" />
+      </section>
+
+      {/* Stats Section */}
+      <section className="py-16 bg-background border-b border-border">
+        <div className="container-custom">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            <StatCard value="+150" label="Empresas atendidas" />
+            <StatCard value="98%" label="Satisfação dos clientes" />
+            <StatCard value="+3M" label="Interações automatizadas" />
+            <StatCard value="24/7" label="Atendimento ativo" />
+          </div>
+        </div>
+      </section>
+
+      {/* Value Proposition */}
+      <section className="section-padding bg-background">
+        <div className="container-custom">
+          <SectionHeader
+            badge="Por que a Connect Labs"
+            title="Orquestração que gera resultado real"
+            subtitle="Não entregamos apenas automação. Entregamos um sistema integrado que transforma a forma como você vende e atende."
+          />
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+            {benefits.map((benefit, index) => (
+              <FeatureCard
+                key={index}
+                icon={benefit.icon}
+                title={benefit.title}
+                description={benefit.description}
+              />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* How It Works */}
+      <section className="section-padding bg-muted">
+        <div className="container-custom">
+          <SectionHeader
+            badge="Método Connect Labs"
+            title="Como funciona"
+            subtitle="Um processo estruturado para implementar orquestração digital no seu negócio."
+          />
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {howItWorks.map((item, index) => (
+              <div key={index} className="relative">
+                <div className="text-6xl font-heading font-bold text-accent/20 mb-4">
+                  {item.step}
+                </div>
+                <h3 className="text-xl font-heading font-semibold mb-2 text-foreground">
+                  {item.title}
+                </h3>
+                <p className="text-muted-foreground leading-relaxed">
+                  {item.description}
+                </p>
+                {index < howItWorks.length - 1 && (
+                  <div className="hidden lg:block absolute top-8 right-0 w-1/2 h-0.5 bg-gradient-to-r from-accent/30 to-transparent" />
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Segments */}
+      <section className="section-padding bg-background">
+        <div className="container-custom">
+          <SectionHeader
+            badge="Segmentos"
+            title="Quem atendemos"
+            subtitle="Soluções personalizadas para diferentes mercados e necessidades."
+          />
+
+          <div className="flex flex-wrap justify-center gap-4 md:gap-6">
+            {segments.map((segment, index) => (
+              <Link
+                key={index}
+                to="/segmentos"
+                className="flex items-center gap-3 px-6 py-4 bg-card rounded-2xl border border-border hover:border-accent/30 hover:shadow-lg transition-all group"
+              >
+                <segment.icon className="w-6 h-6 text-accent" />
+                <span className="font-medium text-foreground group-hover:text-accent transition-colors">
+                  {segment.name}
+                </span>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Social Proof / Testimonials */}
+      <section className="section-padding bg-muted">
+        <div className="container-custom">
+          <SectionHeader
+            badge="Prova Social"
+            title="O que nossos clientes dizem"
+            subtitle="Resultados reais de empresas que transformaram suas operações com a Connect Labs."
+          />
+
+          <div className="grid md:grid-cols-3 gap-6 md:gap-8">
+            {testimonials.map((testimonial, index) => (
+              <TestimonialCard
+                key={index}
+                quote={testimonial.quote}
+                author={testimonial.author}
+                role={testimonial.role}
+                company={testimonial.company}
+              />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Features List */}
+      <section className="section-padding bg-background">
+        <div className="container-custom">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+            <div>
+              <SectionHeader
+                badge="Diferenciais"
+                title="Tecnologia a serviço da conversão"
+                subtitle="Integramos todas as pontas do seu funil para criar uma máquina de vendas previsível."
+                centered={false}
+              />
+
+              <ul className="space-y-4">
+                {[
+                  "Integração nativa com WhatsApp Business",
+                  "Conexão com os principais CRMs do mercado",
+                  "Agendamento automático sincronizado",
+                  "Gateway de pagamentos integrado",
+                  "Dashboard de métricas em tempo real",
+                  "Suporte consultivo dedicado",
+                ].map((item, index) => (
+                  <li key={index} className="flex items-center gap-3">
+                    <CheckCircle2 className="w-5 h-5 text-accent flex-shrink-0" />
+                    <span className="text-foreground">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="grid grid-cols-2 gap-4">
+              <div className="card-premium flex flex-col items-center text-center p-6">
+                <MessageSquare className="w-10 h-10 text-accent mb-3" />
+                <span className="font-semibold text-foreground">WhatsApp</span>
+              </div>
+              <div className="card-premium flex flex-col items-center text-center p-6">
+                <BarChart3 className="w-10 h-10 text-accent mb-3" />
+                <span className="font-semibold text-foreground">CRM</span>
+              </div>
+              <div className="card-premium flex flex-col items-center text-center p-6">
+                <Calendar className="w-10 h-10 text-accent mb-3" />
+                <span className="font-semibold text-foreground">Agenda</span>
+              </div>
+              <div className="card-premium flex flex-col items-center text-center p-6">
+                <CreditCard className="w-10 h-10 text-accent mb-3" />
+                <span className="font-semibold text-foreground">Pagamentos</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <CTASection
+        title="Pronto para escalar suas vendas?"
+        subtitle="Agende uma conversa estratégica com nossos especialistas e descubra como a orquestração digital pode transformar seu negócio."
+        buttonText="Agendar conversa estratégica"
+        buttonLink="/contato"
+      />
+    </Layout>
+  );
+}
