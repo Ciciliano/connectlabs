@@ -117,9 +117,9 @@ export function Footer() {
                 <Mail className="w-4 h-4" />
                 contato@connectlabs.com.br
               </a>
-              <a href="tel:+5511999999999" className="flex items-center gap-2 hover:text-accent transition-colors">
+              <a href="tel:+5516997532209" className="flex items-center gap-2 hover:text-accent transition-colors">
                 <Phone className="w-4 h-4" />
-                (11) 99999-9999
+                (16) 99753-2209
               </a>
             </div>
             <p className="text-sm text-primary-foreground/50">

@@ -196,6 +196,21 @@ export default function Segmentos() {
         </div>
       </section>
 
+      {/* Custom Projects Note */}
+      <section className="section-padding bg-muted/30">
+        <div className="container-custom">
+          <div className="card-premium text-center max-w-3xl mx-auto">
+            <h3 className="text-2xl md:text-3xl font-heading font-bold text-foreground mb-4">
+              Projetos personalizados para outros nichos
+            </h3>
+            <p className="text-lg text-muted-foreground mb-6">
+              Além dos segmentos listados, desenvolvemos soluções sob medida para diversos outros mercados. 
+              Nossa metodologia é adaptável e pode ser personalizada para atender às necessidades específicas do seu negócio.
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* CTA */}
       <CTASection
         title="Seu segmento não está listado?"
