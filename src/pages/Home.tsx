@@ -18,9 +18,11 @@ import {
   CreditCard,
   BarChart3
 } from "lucide-react";
+import { motion } from "framer-motion";
 import { Layout } from "@/components/layout/Layout";
 import { SectionHeader, FeatureCard, TestimonialCard, StatCard } from "@/components/ui/SectionComponents";
 import { CTASection } from "@/components/CTASection";
+import { ScrollReveal, StaggerContainer, StaggerItem } from "@/components/ui/ScrollReveal";
 
 const benefits = [
   {
@@ -114,18 +116,38 @@ export default function Home() {
       <section className="hero-bg min-h-[90vh] flex items-center relative overflow-hidden">
         <div className="container-custom relative z-10">
           <div className="max-w-4xl mx-auto text-center">
-            <span className="inline-block px-4 py-2 bg-accent/20 text-accent rounded-full text-sm font-medium mb-6 animate-fade-in-up">
+            <motion.span 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              className="inline-block px-4 py-2 bg-accent/20 text-accent rounded-full text-sm font-medium mb-6"
+            >
               Orquestração Digital Inteligente
-            </span>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-heading font-bold text-white mb-6 leading-tight animate-fade-in-up" style={{ animationDelay: "0.1s" }}>
+            </motion.span>
+            <motion.h1 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-heading font-bold text-white mb-6 leading-tight"
+            >
               Transformamos atendimento em vendas com{" "}
               <span className="text-gradient-cta">automação inteligente</span>
-            </h1>
-            <p className="text-xl md:text-2xl text-white/80 mb-10 max-w-3xl mx-auto leading-relaxed animate-fade-in-up" style={{ animationDelay: "0.2s" }}>
+            </motion.h1>
+            <motion.p 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="text-xl md:text-2xl text-white/80 mb-10 max-w-3xl mx-auto leading-relaxed"
+            >
               IA, automação e estratégia trabalhando juntas para gerar previsibilidade 
               e escalar suas vendas sem aumentar sua equipe.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up" style={{ animationDelay: "0.3s" }}>
+            </motion.p>
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              className="flex flex-col sm:flex-row gap-4 justify-center"
+            >
               <Link to="/contato" className="btn-cta text-lg">
                 Fale com um especialista
                 <ArrowRight className="w-5 h-5" />
@@ -133,7 +155,7 @@ export default function Home() {
               <Link to="/solucoes" className="btn-secondary bg-white/10 text-white border-white/20 hover:bg-white/20 text-lg">
                 Conheça as soluções
               </Link>
-            </div>
+            </motion.div>
           </div>
         </div>
 
@@ -145,113 +167,140 @@ export default function Home() {
       {/* Stats Section */}
       <section className="py-16 bg-background border-b border-border">
         <div className="container-custom">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            <StatCard value="+150" label="Empresas atendidas" />
-            <StatCard value="98%" label="Satisfação dos clientes" />
-            <StatCard value="+3M" label="Interações automatizadas" />
-            <StatCard value="24/7" label="Atendimento ativo" />
-          </div>
+          <StaggerContainer className="grid grid-cols-2 md:grid-cols-4 gap-8" staggerDelay={0.1}>
+            <StaggerItem>
+              <StatCard value="+150" label="Empresas atendidas" />
+            </StaggerItem>
+            <StaggerItem>
+              <StatCard value="98%" label="Satisfação dos clientes" />
+            </StaggerItem>
+            <StaggerItem>
+              <StatCard value="+3M" label="Interações automatizadas" />
+            </StaggerItem>
+            <StaggerItem>
+              <StatCard value="24/7" label="Atendimento ativo" />
+            </StaggerItem>
+          </StaggerContainer>
         </div>
       </section>
 
       {/* Value Proposition */}
       <section className="section-padding bg-background">
         <div className="container-custom">
-          <SectionHeader
-            badge="Por que a Connect Labs"
-            title="Orquestração que gera resultado real"
-            subtitle="Não entregamos apenas automação. Entregamos um sistema integrado que transforma a forma como você vende e atende."
-          />
+          <ScrollReveal>
+            <SectionHeader
+              badge="Por que a Connect Labs"
+              title="Orquestração que gera resultado real"
+              subtitle="Não entregamos apenas automação. Entregamos um sistema integrado que transforma a forma como você vende e atende."
+            />
+          </ScrollReveal>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+          <StaggerContainer className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8" staggerDelay={0.08}>
             {benefits.map((benefit, index) => (
-              <FeatureCard
-                key={index}
-                icon={benefit.icon}
-                title={benefit.title}
-                description={benefit.description}
-              />
+              <StaggerItem key={index}>
+                <FeatureCard
+                  icon={benefit.icon}
+                  title={benefit.title}
+                  description={benefit.description}
+                />
+              </StaggerItem>
             ))}
-          </div>
+          </StaggerContainer>
         </div>
       </section>
 
       {/* How It Works */}
       <section className="section-padding bg-muted">
         <div className="container-custom">
-          <SectionHeader
-            badge="Método Connect Labs"
-            title="Como funciona"
-            subtitle="Um processo estruturado para implementar orquestração digital no seu negócio."
-          />
+          <ScrollReveal>
+            <SectionHeader
+              badge="Método Connect Labs"
+              title="Como funciona"
+              subtitle="Um processo estruturado para implementar orquestração digital no seu negócio."
+            />
+          </ScrollReveal>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <StaggerContainer className="grid md:grid-cols-2 lg:grid-cols-4 gap-8" staggerDelay={0.15}>
             {howItWorks.map((item, index) => (
-              <div key={index} className="relative">
-                <div className="text-6xl font-heading font-bold text-accent/20 mb-4">
-                  {item.step}
+              <StaggerItem key={index}>
+                <div className="relative">
+                  <div className="text-6xl font-heading font-bold text-accent/20 mb-4">
+                    {item.step}
+                  </div>
+                  <h3 className="text-xl font-heading font-semibold mb-2 text-foreground">
+                    {item.title}
+                  </h3>
+                  <p className="text-muted-foreground leading-relaxed">
+                    {item.description}
+                  </p>
+                  {index < howItWorks.length - 1 && (
+                    <div className="hidden lg:block absolute top-8 right-0 w-1/2 h-0.5 bg-gradient-to-r from-accent/30 to-transparent" />
+                  )}
                 </div>
-                <h3 className="text-xl font-heading font-semibold mb-2 text-foreground">
-                  {item.title}
-                </h3>
-                <p className="text-muted-foreground leading-relaxed">
-                  {item.description}
-                </p>
-                {index < howItWorks.length - 1 && (
-                  <div className="hidden lg:block absolute top-8 right-0 w-1/2 h-0.5 bg-gradient-to-r from-accent/30 to-transparent" />
-                )}
-              </div>
+              </StaggerItem>
             ))}
-          </div>
+          </StaggerContainer>
         </div>
       </section>
 
       {/* Segments */}
       <section className="section-padding bg-background">
         <div className="container-custom">
-          <SectionHeader
-            badge="Segmentos"
-            title="Quem atendemos"
-            subtitle="Soluções personalizadas para diferentes mercados e necessidades."
-          />
+          <ScrollReveal>
+            <SectionHeader
+              badge="Segmentos"
+              title="Quem atendemos"
+              subtitle="Soluções personalizadas para diferentes mercados e necessidades."
+            />
+          </ScrollReveal>
 
-          <div className="flex flex-wrap justify-center gap-4 md:gap-6">
-            {segments.map((segment, index) => (
-              <Link
-                key={index}
-                to="/segmentos"
-                className="flex items-center gap-3 px-6 py-4 bg-card rounded-2xl border border-border hover:border-accent/30 hover:shadow-lg transition-all group"
-              >
-                <segment.icon className="w-6 h-6 text-accent" />
-                <span className="font-medium text-foreground group-hover:text-accent transition-colors">
-                  {segment.name}
-                </span>
-              </Link>
-            ))}
-          </div>
+          <ScrollReveal delay={0.2}>
+            <div className="flex flex-wrap justify-center gap-4 md:gap-6">
+              {segments.map((segment, index) => (
+                <motion.div
+                  key={index}
+                  whileHover={{ scale: 1.05, y: -4 }}
+                  whileTap={{ scale: 0.98 }}
+                >
+                  <Link
+                    to="/segmentos"
+                    className="flex items-center gap-3 px-6 py-4 bg-card rounded-2xl border border-border hover:border-accent/30 hover:shadow-lg transition-all group"
+                  >
+                    <segment.icon className="w-6 h-6 text-accent" />
+                    <span className="font-medium text-foreground group-hover:text-accent transition-colors">
+                      {segment.name}
+                    </span>
+                  </Link>
+                </motion.div>
+              ))}
+            </div>
+          </ScrollReveal>
         </div>
       </section>
 
       {/* Social Proof / Testimonials */}
       <section className="section-padding bg-muted">
         <div className="container-custom">
-          <SectionHeader
-            badge="Prova Social"
-            title="O que nossos clientes dizem"
-            subtitle="Resultados reais de empresas que transformaram suas operações com a Connect Labs."
-          />
+          <ScrollReveal>
+            <SectionHeader
+              badge="Prova Social"
+              title="O que nossos clientes dizem"
+              subtitle="Resultados reais de empresas que transformaram suas operações com a Connect Labs."
+            />
+          </ScrollReveal>
 
-          <div className="grid md:grid-cols-3 gap-6 md:gap-8">
+          <StaggerContainer className="grid md:grid-cols-3 gap-6 md:gap-8" staggerDelay={0.12}>
             {testimonials.map((testimonial, index) => (
-              <TestimonialCard
-                key={index}
-                quote={testimonial.quote}
-                author={testimonial.author}
-                role={testimonial.role}
-                company={testimonial.company}
-              />
+              <StaggerItem key={index}>
+                <TestimonialCard
+                  quote={testimonial.quote}
+                  author={testimonial.author}
+                  role={testimonial.role}
+                  company={testimonial.company}
+                />
+              </StaggerItem>
             ))}
-          </div>
+          </StaggerContainer>
         </div>
       </section>
 
@@ -259,60 +308,91 @@ export default function Home() {
       <section className="section-padding bg-background">
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-            <div>
-              <SectionHeader
-                badge="Diferenciais"
-                title="Tecnologia a serviço da conversão"
-                subtitle="Integramos todas as pontas do seu funil para criar uma máquina de vendas previsível."
-                centered={false}
-              />
+            <ScrollReveal direction="left">
+              <div>
+                <SectionHeader
+                  badge="Diferenciais"
+                  title="Tecnologia a serviço da conversão"
+                  subtitle="Integramos todas as pontas do seu funil para criar uma máquina de vendas previsível."
+                  centered={false}
+                />
 
-              <ul className="space-y-4">
-                {[
-                  "Integração nativa com WhatsApp Business",
-                  "Conexão com os principais CRMs do mercado",
-                  "Agendamento automático sincronizado",
-                  "Gateway de pagamentos integrado",
-                  "Dashboard de métricas em tempo real",
-                  "Suporte consultivo dedicado",
-                ].map((item, index) => (
-                  <li key={index} className="flex items-center gap-3">
-                    <CheckCircle2 className="w-5 h-5 text-accent flex-shrink-0" />
-                    <span className="text-foreground">{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
+                <ul className="space-y-4">
+                  {[
+                    "Integração nativa com WhatsApp Business",
+                    "Conexão com os principais CRMs do mercado",
+                    "Agendamento automático sincronizado",
+                    "Gateway de pagamentos integrado",
+                    "Dashboard de métricas em tempo real",
+                    "Suporte consultivo dedicado",
+                  ].map((item, index) => (
+                    <motion.li 
+                      key={index} 
+                      className="flex items-center gap-3"
+                      initial={{ opacity: 0, x: -20 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: index * 0.1, duration: 0.4 }}
+                    >
+                      <CheckCircle2 className="w-5 h-5 text-accent flex-shrink-0" />
+                      <span className="text-foreground">{item}</span>
+                    </motion.li>
+                  ))}
+                </ul>
+              </div>
+            </ScrollReveal>
 
-            <div className="grid grid-cols-2 gap-4">
-              <div className="card-premium flex flex-col items-center text-center p-6">
-                <MessageSquare className="w-10 h-10 text-accent mb-3" />
-                <span className="font-semibold text-foreground">WhatsApp</span>
-              </div>
-              <div className="card-premium flex flex-col items-center text-center p-6">
-                <BarChart3 className="w-10 h-10 text-accent mb-3" />
-                <span className="font-semibold text-foreground">CRM</span>
-              </div>
-              <div className="card-premium flex flex-col items-center text-center p-6">
-                <Calendar className="w-10 h-10 text-accent mb-3" />
-                <span className="font-semibold text-foreground">Agenda</span>
-              </div>
-              <div className="card-premium flex flex-col items-center text-center p-6">
-                <CreditCard className="w-10 h-10 text-accent mb-3" />
-                <span className="font-semibold text-foreground">Pagamentos</span>
-              </div>
-            </div>
+            <StaggerContainer className="grid grid-cols-2 gap-4" staggerDelay={0.1}>
+              <StaggerItem>
+                <motion.div 
+                  className="card-premium flex flex-col items-center text-center p-6"
+                  whileHover={{ scale: 1.05, y: -4 }}
+                >
+                  <MessageSquare className="w-10 h-10 text-accent mb-3" />
+                  <span className="font-semibold text-foreground">WhatsApp</span>
+                </motion.div>
+              </StaggerItem>
+              <StaggerItem>
+                <motion.div 
+                  className="card-premium flex flex-col items-center text-center p-6"
+                  whileHover={{ scale: 1.05, y: -4 }}
+                >
+                  <BarChart3 className="w-10 h-10 text-accent mb-3" />
+                  <span className="font-semibold text-foreground">CRM</span>
+                </motion.div>
+              </StaggerItem>
+              <StaggerItem>
+                <motion.div 
+                  className="card-premium flex flex-col items-center text-center p-6"
+                  whileHover={{ scale: 1.05, y: -4 }}
+                >
+                  <Calendar className="w-10 h-10 text-accent mb-3" />
+                  <span className="font-semibold text-foreground">Agenda</span>
+                </motion.div>
+              </StaggerItem>
+              <StaggerItem>
+                <motion.div 
+                  className="card-premium flex flex-col items-center text-center p-6"
+                  whileHover={{ scale: 1.05, y: -4 }}
+                >
+                  <CreditCard className="w-10 h-10 text-accent mb-3" />
+                  <span className="font-semibold text-foreground">Pagamentos</span>
+                </motion.div>
+              </StaggerItem>
+            </StaggerContainer>
           </div>
         </div>
       </section>
 
       {/* CTA Section */}
-      <CTASection
-        title="Pronto para escalar suas vendas?"
-        subtitle="Agende uma conversa estratégica com nossos especialistas e descubra como a orquestração digital pode transformar seu negócio."
-        buttonText="Agendar conversa estratégica"
-        buttonLink="/contato"
-      />
+      <ScrollReveal>
+        <CTASection
+          title="Pronto para escalar suas vendas?"
+          subtitle="Agende uma conversa estratégica com nossos especialistas e descubra como a orquestração digital pode transformar seu negócio."
+          buttonText="Agendar conversa estratégica"
+          buttonLink="/contato"
+        />
+      </ScrollReveal>
     </Layout>
   );
 }
