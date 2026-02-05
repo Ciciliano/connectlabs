@@ -1,8 +1,8 @@
 import { Link, useLocation } from "react-router-dom";
 import { useState } from "react";
-import { Menu, X, Zap } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
-
+import logoConnectLabs from "@/assets/logo-connect-labs.png";
 const navigation = [
   { name: "Home", href: "/" },
   { name: "Soluções", href: "/solucoes" },
@@ -22,12 +22,11 @@ export function Header() {
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2 group">
-            <div className="w-10 h-10 rounded-xl bg-primary flex items-center justify-center transition-transform group-hover:scale-105">
-              <Zap className="w-5 h-5 text-primary-foreground" />
-            </div>
-            <span className="text-xl font-heading font-bold text-foreground">
-              Connect<span className="text-accent">Labs</span>
-            </span>
+            <img 
+              src={logoConnectLabs} 
+              alt="Connect Labs" 
+              className="h-12 w-auto transition-transform group-hover:scale-105"
+            />
           </Link>
 
           {/* Desktop Navigation */}
