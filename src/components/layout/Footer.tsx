@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
-import { Zap, Mail, Phone, MapPin, Linkedin, Instagram } from "lucide-react";
+import { Mail, Phone, Linkedin, Instagram } from "lucide-react";
+import logoConnectLabs from "@/assets/logo-connect-labs.png";
 
 const footerLinks = {
   empresa: [
@@ -28,12 +29,11 @@ export function Footer() {
           {/* Brand Column */}
           <div className="lg:col-span-2">
             <Link to="/" className="flex items-center gap-2 mb-6">
-              <div className="w-10 h-10 rounded-xl bg-accent flex items-center justify-center">
-                <Zap className="w-5 h-5 text-accent-foreground" />
-              </div>
-              <span className="text-xl font-heading font-bold text-primary-foreground">
-                Connect<span className="text-accent">Labs</span>
-              </span>
+              <img 
+                src={logoConnectLabs} 
+                alt="Connect Labs" 
+                className="h-14 w-auto"
+              />
             </Link>
             <p className="text-primary-foreground/80 mb-6 max-w-sm leading-relaxed">
               Orquestração digital inteligente para empresas que precisam de previsibilidade, 
