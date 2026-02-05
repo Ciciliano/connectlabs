@@ -17,28 +17,28 @@ export function Header() {
   const location = useLocation();
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-lg border-b border-border">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-xl border-b border-border/50 shadow-sm">
       <nav className="container-custom">
-        <div className="flex items-center justify-between h-16 md:h-20">
+        <div className="flex items-center justify-between h-20 md:h-24">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2 group">
             <img 
               src={logoConnectLabs} 
               alt="Connect Labs" 
-              className="h-12 w-auto transition-transform group-hover:scale-105"
+              className="h-16 md:h-20 w-auto transition-transform group-hover:scale-105"
             />
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center gap-1">
+          <div className="hidden lg:flex items-center gap-1 bg-muted/50 rounded-full px-2 py-1.5">
             {navigation.map((item) => (
               <Link
                 key={item.name}
                 to={item.href}
-                className={`px-4 py-2 text-sm font-medium rounded-lg transition-colors ${
+                className={`px-5 py-2.5 text-sm font-medium rounded-full transition-all duration-200 ${
                   location.pathname === item.href
-                    ? "text-accent bg-accent/10"
-                    : "text-muted-foreground hover:text-foreground hover:bg-muted"
+                    ? "text-primary-foreground bg-primary shadow-md"
+                    : "text-muted-foreground hover:text-foreground hover:bg-background"
                 }`}
               >
                 {item.name}
@@ -48,7 +48,7 @@ export function Header() {
 
           {/* Desktop CTA */}
           <div className="hidden lg:flex items-center gap-3">
-            <Button asChild className="btn-cta text-sm px-6 py-2.5">
+            <Button asChild className="btn-cta text-sm px-8 py-3 rounded-full shadow-lg hover:shadow-xl transition-shadow">
               <Link to="/contato">Fale com especialista</Link>
             </Button>
           </div>
