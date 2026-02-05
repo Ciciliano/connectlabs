@@ -32,7 +32,7 @@ export function Footer() {
               <img 
                 src={logoConnectLabs} 
                 alt="Connect Labs" 
-                className="h-14 w-auto"
+                className="h-20 w-auto"
               />
             </Link>
             <p className="text-primary-foreground/80 mb-6 max-w-sm leading-relaxed">
